@@ -1,3 +1,8 @@
+---
+title: Chrome浏览器扩展程序开发学习
+tags: [code, JavaScript, Node.js]
+categories: [code]
+---
 # 关于Chrome浏览器扩展程序开发
 
 chrome 扩展程序是由 js,css,HTML 等常规前端技术组成的可以自动化浏览器动作的 chrome 插件形式工具。

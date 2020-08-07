@@ -1,3 +1,8 @@
+---
+title: Laravel框架学习
+tags: [code,php,lavarel]
+categories: [code]
+---
 # Laravel框架学习
 
 参考文档 <https://cloud.tencent.com/developer/article/1602220>
