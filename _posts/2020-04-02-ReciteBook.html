@@ -1,0 +1,79 @@
+<script src="/js/jquery-3.4.1.min.js"></script>
+<style>
+	.hide{
+		color:white;
+		background: white;
+	}
+	.blur{
+    -webkit-filter: blur(1px);
+       -moz-filter: blur(1px);
+        -ms-filter: blur(1px);    
+            filter: blur(1px);  
+    }
+    .black{
+	    background: #3c3c3c;
+	    color: #3c3c3c;
+	    border-radius: 10px;
+    }
+</style>
+<div>
+	<p>文章：</p>
+	<p><textarea name="" id="content" cols="50" rows="10"></textarea></p>
+	<p>遮住：</p>
+	<p><input type="number" id="rate" value="50" max="100" style="width: 50px">%</p>
+	<p><a href="javascript:genArticle()">生成</a></p>
+	<p>样式：</p>
+	
+	<p><label for="">
+		<input type="radio" checked name="style" value="hide">消失： 先<span class="hide">帝</span>创业<span class="hide">未</span>半而中道<span class="hide">崩</span>殂
+	</label></p>
+	<p><label for="">
+		<input type="radio" name="style" value="blur">模糊： 先<span class="blur">帝</span>创业<span class="blur">未</span>半而中道<span class="blur">崩</span>殂
+	</label></p>
+	<p><label for="">
+		<input type="radio" name="style" value="black">涂黑： 先<span class="black">帝</span>创业<span class="black">未</span>半而中道<span class="black">崩</span>殂
+	</label></p>
+		<!-- <label for="">覆盖<input type="radio" name="style" value="2"></label> -->
+	
+</div>
+<div id="article">
+	
+</div>
+<script>
+
+function coverContent(content,rate,style){
+	if(rate > 1 || content == '') return content;
+	var len = content.length;
+	var needCover =  Math.round(len * rate);
+	var coverCnt = 0;
+	var coverArr = [];
+	var contentArr = content.split('');
+	var i = 0;
+	while(coverCnt < needCover){
+		i++;
+		var rand = Math.round(Math.random()*len);
+		if(coverArr.indexOf(''+rand) == -1 && contentArr[rand]){
+			if(/[\u4e00-\u9fa5_a-zA-Z0-9]/.test(contentArr[rand])){
+				contentArr[rand] = '<span class="'+style+'">'+contentArr[rand]+'</span>';
+				coverCnt++;
+				coverArr.push(''+rand);
+			}
+		}
+		if(i>len*10) break;
+	}
+	return contentArr.join('');
+}
+
+function genArticle(){
+	var content = $("#content").val();
+	var rate = $("#rate").val();
+	if(rate > 100){
+		alert('请填写1-100之间');
+		return;
+	}
+	var type = $('input[name="style"]:checked').val();
+	console.log(type);
+	var article = coverContent(content,rate/100,type);
+	$('#article').html(article);
+}
+</script>
