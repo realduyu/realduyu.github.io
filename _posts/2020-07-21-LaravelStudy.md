@@ -1,7 +1,6 @@
 ---
 title: Laravel框架学习
-tags: [code,php,lavarel]
-categories: [code]
+tags: [编程,php]
 ---
 # Laravel框架学习
 

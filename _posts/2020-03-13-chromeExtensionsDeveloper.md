@@ -1,7 +1,6 @@
 ---
 title: Chrome浏览器扩展程序开发学习
-tags: [code, JavaScript, Node.js]
-categories: [code]
+tags: [编程, JavaScript]
 ---
 # 关于Chrome浏览器扩展程序开发
 

@@ -1,7 +1,6 @@
 ---
 title: 数字媒体技术
-tags: [doc]
-categories: [docs]
+tags: [其他]
 ---
 
 数字媒体技术
